@@ -6,16 +6,15 @@
 }
 :root{
     --primary:#0d5f51;
-    --gray:#bbbaba;
+    --gray:#525151;
     --light-gray:#f4f4f4;
     --dark-gray:#666666;
     --white:#ffffff;
     --dark:#121212;
     --oscure:0,0,0;
 }
-h1{
-    flex: 1;
-}
+h1{ flex: 1; }
+img{ height: auto; }
 header{
     grid-area: header;
     top: 0;
@@ -47,7 +46,6 @@ main section article h2{
     padding: 0 .7rem;
 }
 main section article a:first-child{
-    opacity: .8;
     transition: opacity .3s ease-in;
 }
 main section article a:first-child:hover{
@@ -198,6 +196,9 @@ footer,
     }
     main section article{
         padding-bottom: 5rem;
+    }
+    main section article a:first-child{
+        opacity: .8;
     }
 }
 @media screen and (min-width: 992px){
