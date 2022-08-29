@@ -17,11 +17,13 @@
 <body>
     
     <div id="wrap-main" class="d-grid">
-        <header>
+        <header class="d-flex">
+            <button id="btn-menu"><i class="fa-solid fa-bars"></i></button>
+            <button id="btn-arrow" class="d-none"><i class="fa-solid fa-arrow-left"></i></i></button>
             <h1>Mi Ecommerce</h1>
         </header>
         
-        <section class="menu" title="Categorías">
+        <section id="menu" class="menu" title="Categorías">
             <div>
                 <h2>Categorías</h2>
                 <nav>
@@ -93,7 +95,22 @@
         </footer>
     </div>
 
-
+    <script src="https://kit.fontawesome.com/782380a832.js" crossorigin="anonymous"></script>
+    <script>
+        const btnMenu = document.getElementById('btn-menu');
+        const btnArrow = document.getElementById('btn-arrow');
+        const grid = document.getElementById('wrap-main');
+        btnMenu.addEventListener('click', () => {
+            grid.classList.add('open');
+            btnMenu.classList.add('d-none');
+            btnArrow.classList.remove('d-none');
+        });
+        btnArrow.addEventListener('click', () => {
+            grid.classList.remove('open');
+            btnMenu.classList.remove('d-none');
+            btnArrow.classList.add('d-none');
+        });
+    </script>
 
 </body>
 </html>

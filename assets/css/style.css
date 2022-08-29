@@ -13,20 +13,41 @@
     --dark:#121212;
     --oscure:0,0,0;
 }
+html,
+body{
+    overflow-x: hidden;
+}
+h1{
+    flex: 1;
+}
 header{
     grid-area: header;
     background-color: var(--primary);
     text-align: center;
     color: var(--white);
     padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+header button{
+    border: 0;
+    text-align: center;
+    padding: 0 1rem;
+    background: transparent;
+    color: var(--white);
+    font-size: 1.15rem;
 }
 main{
     grid-area: main;
     padding: 2rem;
+    grid-column-start: 1;
 }
 main section{
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
 }
 main section article{
@@ -36,6 +57,8 @@ main section article{
     align-items: center;
     gap: 1rem;
     overflow: hidden;
+    position: relative;
+    padding-bottom: 4rem;
 }
 main section article img{
     width: 100%;
@@ -61,6 +84,9 @@ main section article a:last-child{
     width: 100%;
     text-align: center;
     margin-top: 1rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
 main section article a:last-child:hover{
     background-color: var(--dark-gray);
@@ -70,24 +96,43 @@ footer{
     border-top: 1px solid var(--dark-gray);
     justify-content: center;
     align-items: center;
+    background-color: var(--white);
+    z-index: 1;
 }
 #wrap-main{
     min-height: 100vh;
     grid-template-rows: 4.375rem calc(100% - 7.375rem) 3rem;
-    grid-template-columns: 12.5rem 1fr;
+    grid-template-columns: 0 1fr;
     grid-template-areas: 
     'header header'
     'menu main'
     'footer footer';
 }
+#wrap-main.open{
+    grid-template-columns: 12.5rem 1fr;
+}
+#wrap-main.open .menu{
+    overflow: initial;
+    z-index: 1;
+    width: 12.5rem;
+}
 .menu{
     grid-area: menu;
     background-color: var(--light-gray);
+    overflow: hidden;
+    position: fixed;
+    top: 4.375rem;
+    left: 0;
+    z-index: 1;
+    width: 0;
+    height: 100%;
+
 }
 .menu div{
-    position: sticky;
-    top:0;
-    padding: 1rem .7rem;
+    padding: 1rem;
+}
+.menu div ul{
+    list-style-type: none;
 }
 .menu h2{
     margin-bottom: .9rem;
@@ -108,4 +153,34 @@ footer{
 }
 .d-flex{
     display: flex;
+}
+.d-none{
+    display: none;
+}
+@media screen and (min-width: 576px){
+    main{
+        grid-column-start: 2;
+    }
+    #wrap-main{
+        grid-template-columns: 12.5rem 1fr;
+    }
+    header button{
+        display: none;
+    }
+    .menu{
+        overflow: initial;
+        width: 12.5rem;
+    }
+    main section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (min-width: 768px){
+    main section{
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+    }
+    main section article{
+        padding-bottom: 5rem;
+    }
 }
