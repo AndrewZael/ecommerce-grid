@@ -39,11 +39,11 @@ main section article{
     border-radius: 0.313rem;
     box-shadow: 0 0 .25rem rgba(var(--oscure), .25);
     flex-direction: column;
-    position: relative;
-    padding-bottom: 4rem;
+    justify-content: space-between;
 }
 main section article h2{
     padding: 0 .7rem;
+    text-align: center;
 }
 main section article a:first-child{
     transition: opacity .3s ease-in;
@@ -53,8 +53,6 @@ main section article a:first-child:hover{
 }
 main section article a:last-child{
     margin-top: 1rem;
-    position: absolute;
-    bottom: 0;
 }
 main section article a:last-child:hover{
     background-color: var(--dark-gray);
@@ -193,9 +191,6 @@ footer,
     main section{
         grid-template-rows: repeat(2, 1fr);
         grid-template-columns: repeat(3, 1fr);
-    }
-    main section article{
-        padding-bottom: 5rem;
     }
     main section article a:first-child{
         opacity: .8;
